@@ -1,3 +1,51 @@
-/*
-  Custom styles for Trackster App
-*/
+
+html{
+  font-size: 16px;
+}
+
+body{
+  padding-top: 10rem;
+}
+
+/** HEADER SECTION **/
+
+#header{
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+#header .container-fluid{
+  background-color: rgb(35,2,63);
+}
+
+#header .container-fluid .row{
+  display: flex;
+  align-items: center;
+}
+
+#header .col h1{
+  font-family: "Righteous";
+  font-size: 2.5re,;
+  color: rgb(255,0,171);
+}
+
+#header .col input{
+  width: 100%;
+  height: 2.5rem;
+  padding: 0 1rem;
+  border: none;
+  border-radius: 25px;
+}
+
+#header .col button{
+  width: 100%;
+  height: 2.5rem;
+  border: none;
+  border-radius: 25px;
+  background-color: rgb(255,102,204);
+}
+
+#header .col-lg-2{
+  padding: 0;
+}
