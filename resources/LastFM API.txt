@@ -1,0 +1,3 @@
+API Key: aaa6d9f68e7124fbfe7a8287c068e7ae
+
+Shared Secret: 4c48ee63d0bccf818433ceb9fa1a2767
