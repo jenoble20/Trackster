@@ -8,14 +8,36 @@ $(document).ready(function(){
     Trackster.searchTracksByTitle($('#search-box').val());
   });
 
-  var Trackster = {};
+  let Trackster = {};
 
   /*
     Given an array of track data, create the HTML for a Bootstrap row for each.
     Append each "row" to the container in the body to display all tracks.
   */
   Trackster.renderTracks = function(tracks) {
-
+    $('#main').empty();
+    console.log(tracks[0].url)
+    for(let i=0; i<tracks.length; i++){
+      const resultHTML =
+        `<div class="query-result row">
+          <div class="play col-sm-1">
+            <a href="${tracks[i].url}"><i class="fa fa-play-circle-o fa-2x"></i></a>
+          </div>
+          <div class="col col-sm-4">
+            <p>${tracks[i].name}</p>
+          </div>
+          <div class="col col-sm-3">
+            <p>${tracks[i].artist}</p>
+          </div>
+          <div class="col col-sm-2">
+            <img src="${tracks[i].image[1]['#text']}">
+          </div>
+          <div class="col col-sm-2">
+            <p>${tracks[i].listeners}</p>
+          </div>
+        </div>`
+      $('#main').append(resultHTML);
+    }
   };
 
   /*
@@ -23,12 +45,12 @@ $(document).ready(function(){
     Render the tracks given in the API query response.
   */
   Trackster.searchTracksByTitle = function(title) {
-      console.log(base_URL+URL_prefix+API_Key+`&track=${title}&format=json`);
     $.ajax({
       url: base_URL+URL_prefix+`${title}&api_key=${API_Key}&format=json`,
       datatype: 'jsonp',
       success: function(data){
-        console.log(data);
+        const trackArray = data.results.trackmatches.track;
+        Trackster.renderTracks(trackArray);
       }
     })
   };
