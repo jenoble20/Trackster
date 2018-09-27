@@ -26,6 +26,18 @@ p{
   z-index: 30;
 }
 
+@keyframes load-animation{
+  0% {transform:scale(1.0)}
+  50%{transform:scale(1.2)}
+  100%{transform:scale(1.0)}
+}
+
+.logo-animation{
+  animation-name: load-animation;
+  animation-duration: 1s;
+}
+
+
 .nav.row{
   background-color: rgb(35,2,63);
 }

@@ -4,8 +4,18 @@ $(document).ready(function(){
   const base_URL = 'http://ws.audioscrobbler.com/2.0/';
   const URL_prefix = '?method=track.search&track='
 
+  $("#search-box").focus();
+
   $('#search-button').click(function(){
     Trackster.searchTracksByTitle($('#search-box').val());
+  });
+
+  $('#search-box').keypress(function(event){
+    if(event.which==13){
+      $("#logo").addClass("logo-animation");
+      Trackster.searchTracksByTitle($('#search-box').val());
+      $("#logo").removeClass("logo-animation");
+    }
   });
 
   let Trackster = {};
@@ -16,7 +26,6 @@ $(document).ready(function(){
   */
   Trackster.renderTracks = function(tracks) {
     $('#main').empty();
-    console.log(tracks[0].url)
     for(let i=0; i<tracks.length; i++){
       const resultHTML =
         `<div class="query-result row">
@@ -54,5 +63,4 @@ $(document).ready(function(){
       }
     })
   };
-
 });
