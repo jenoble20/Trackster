@@ -7,7 +7,9 @@ $(document).ready(function(){
   $("#search-box").focus();
 
   $('#search-button').click(function(){
+    $("#logo").addClass("logo-animation");
     Trackster.searchTracksByTitle($('#search-box').val());
+    $("#logo").removeClass("logo-animation");
   });
 
   $('#search-box').keypress(function(event){
